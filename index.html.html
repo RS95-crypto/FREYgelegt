@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcel Frey - Freygelegt</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #b30000;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    #countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Freygelegt – Die wahre Geschichte des Marcel F.</h1>
+    <p>Der Countdown läuft – Hochzeit am 05.07.2025</p>
+    <div id="countdown"></div>
+  </header>
+
+  <section>
+    <h2>Wer ist Marcel Frey?</h2>
+    <p>
+      Marcel Frey – Lehrer, Lebensphilosoph, VfB-Romantiker und Nutella-Liebhaber. <br>
+      Er unterrichtet mit Kreide, Charme und konsequent 3 Minuten zu früh. <br>
+      Seine Schüler fürchten seine Ironie, seine Freunde lieben seine Listen. <br>
+      Ob auf dem Wandertag, beim Frühschoppen oder am Whiteboard: Marcel regelt. <br>
+      Ab Juli verheiratet – aber bis dahin wird's nochmal peinlich.
+    </p>
+  </section>
+
+  <section>
+    <h2>Frey in Bildern</h2>
+    <div class="gallery">
+      <img src="bild1.jpg" alt="Marcel als Kind">
+      <img src="bild2.jpg" alt="Marcel im Lehrerzimmer">
+      <img src="bild3.jpg" alt="Fasching mit Föhnfrisur">
+      <img src="bild4.jpg" alt="Zeltlager 2010">
+    </div>
+  </section>
+
+  <section>
+    <h2>Freyheiten & Zitate</h2>
+    <ul>
+      <li>„Das kommt in der Arbeit dran.“</li>
+      <li>„Das steht so nicht im Lehrplan, aber hören Sie trotzdem zu.“</li>
+      <li>„VfB spielt heute? Dann fällt die Konferenz aus.“</li>
+      <li>„Ich steh nicht auf – es sei denn, es gibt Nutella.“</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Freygelegt – Eine Seite voller Liebe, Peinlichkeit und Vorfreude</p>
+  </footer>
+
+  <script>
+    // Countdown
+    const countdownElement = document.getElementById("countdown");
+    const targetDate = new Date("2025-07-05T00:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "🎉 Heute ist der große Tag!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `${days} Tage ${hours} Std ${minutes} Min ${seconds} Sek`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
